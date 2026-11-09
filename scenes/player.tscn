@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_player"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_body"]
+radius = 7.0
+height = 28.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_body")
+
+[node name="Placeholder" type="Polygon2D" parent="."]
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-7, -7, -6.47, -9.68, -4.95, -11.95, -2.68, -13.47, 0, -14, 2.68, -13.47, 4.95, -11.95, 6.47, -9.68, 7, -7, 7, 7, 6.47, 9.68, 4.95, 11.95, 2.68, 13.47, 0, 14, -2.68, 13.47, -4.95, 11.95, -6.47, 9.68, -7, 7)

@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b25o3rypsrhm6"]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+
+[sub_resource type="RectangleShape2D" id="Rect_floor"]
+size = Vector2(640, 20)
+
+[sub_resource type="RectangleShape2D" id="Rect_wall"]
+size = Vector2(10, 360)
+
+[sub_resource type="RectangleShape2D" id="Rect_platform_low"]
+size = Vector2(120, 10)
+
+[sub_resource type="RectangleShape2D" id="Rect_platform_high"]
+size = Vector2(120, 10)
+
+[node name="Main" type="Node2D" unique_id=1466418086]
+
+[node name="Background" type="ColorRect" parent="." unique_id=843636980]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.17, 1)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=930498733]
+position = Vector2(320, 350)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=181308930]
+shape = SubResource("Rect_floor")
+
+[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=2133337240]
+offset_left = -320.0
+offset_top = -10.0
+offset_right = 320.0
+offset_bottom = 10.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="WallLeft" type="StaticBody2D" parent="." unique_id=152395516]
+position = Vector2(5, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=1311168437]
+shape = SubResource("Rect_wall")
+
+[node name="ColorRect" type="ColorRect" parent="WallLeft" unique_id=492387515]
+offset_left = -5.0
+offset_top = -180.0
+offset_right = 5.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="WallRight" type="StaticBody2D" parent="." unique_id=799146142]
+position = Vector2(635, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=1042851302]
+shape = SubResource("Rect_wall")
+
+[node name="ColorRect" type="ColorRect" parent="WallRight" unique_id=902916300]
+offset_left = -5.0
+offset_top = -180.0
+offset_right = 5.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="PlatformLow" type="StaticBody2D" parent="." unique_id=448368662]
+position = Vector2(200, 290)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformLow" unique_id=533218437]
+shape = SubResource("Rect_platform_low")
+
+[node name="ColorRect" type="ColorRect" parent="PlatformLow" unique_id=21508424]
+offset_left = -60.0
+offset_top = -5.0
+offset_right = 60.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="PlatformHigh" type="StaticBody2D" parent="." unique_id=1730083201]
+position = Vector2(370, 230)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformHigh" unique_id=1598160068]
+shape = SubResource("Rect_platform_high")
+
+[node name="ColorRect" type="ColorRect" parent="PlatformHigh" unique_id=137724421]
+offset_left = -60.0
+offset_top = -5.0
+offset_right = 60.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="Player" parent="." unique_id=892540984 instance=ExtResource("1_player")]
+position = Vector2(80, 326)
