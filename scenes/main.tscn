@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b25o3rypsrhm6"]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="2_camera"]
 
 [sub_resource type="RectangleShape2D" id="Rect_floor"]
-size = Vector2(640, 20)
+size = Vector2(1920, 20)
 
 [sub_resource type="RectangleShape2D" id="Rect_wall"]
 size = Vector2(10, 360)
@@ -17,21 +18,21 @@ size = Vector2(120, 10)
 [node name="Main" type="Node2D" unique_id=1466418086]
 
 [node name="Background" type="ColorRect" parent="." unique_id=843636980]
-offset_right = 640.0
+offset_right = 1920.0
 offset_bottom = 360.0
 mouse_filter = 2
 color = Color(0.15, 0.15, 0.17, 1)
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=930498733]
-position = Vector2(320, 350)
+position = Vector2(960, 350)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=181308930]
 shape = SubResource("Rect_floor")
 
 [node name="ColorRect" type="ColorRect" parent="Floor" unique_id=2133337240]
-offset_left = -320.0
+offset_left = -960.0
 offset_top = -10.0
-offset_right = 320.0
+offset_right = 960.0
 offset_bottom = 10.0
 mouse_filter = 2
 color = Color(0.4, 0.4, 0.4, 1)
@@ -51,7 +52,7 @@ mouse_filter = 2
 color = Color(0.4, 0.4, 0.4, 1)
 
 [node name="WallRight" type="StaticBody2D" parent="." unique_id=799146142]
-position = Vector2(635, 180)
+position = Vector2(1915, 180)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=1042851302]
 shape = SubResource("Rect_wall")
@@ -92,5 +93,70 @@ offset_bottom = 5.0
 mouse_filter = 2
 color = Color(0.4, 0.4, 0.4, 1)
 
+[node name="PlatformLow2" type="StaticBody2D" parent="."]
+position = Vector2(820, 290)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformLow2"]
+shape = SubResource("Rect_platform_low")
+
+[node name="ColorRect" type="ColorRect" parent="PlatformLow2"]
+offset_left = -60.0
+offset_top = -5.0
+offset_right = 60.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="PlatformHigh2" type="StaticBody2D" parent="."]
+position = Vector2(990, 230)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformHigh2"]
+shape = SubResource("Rect_platform_high")
+
+[node name="ColorRect" type="ColorRect" parent="PlatformHigh2"]
+offset_left = -60.0
+offset_top = -5.0
+offset_right = 60.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="PlatformHigh3" type="StaticBody2D" parent="."]
+position = Vector2(1440, 230)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformHigh3"]
+shape = SubResource("Rect_platform_high")
+
+[node name="ColorRect" type="ColorRect" parent="PlatformHigh3"]
+offset_left = -60.0
+offset_top = -5.0
+offset_right = 60.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="PlatformLow3" type="StaticBody2D" parent="."]
+position = Vector2(1610, 290)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformLow3"]
+shape = SubResource("Rect_platform_low")
+
+[node name="ColorRect" type="ColorRect" parent="PlatformLow3"]
+offset_left = -60.0
+offset_top = -5.0
+offset_right = 60.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
 [node name="Player" parent="." unique_id=892540984 instance=ExtResource("1_player")]
 position = Vector2(80, 326)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 360
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+script = ExtResource("2_camera")
