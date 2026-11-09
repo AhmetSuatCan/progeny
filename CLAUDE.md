@@ -1,6 +1,6 @@
 # progeny
 
-2D side-view platformer in **Godot 4.7 / GDScript**. Currently in **Phase 0**: a tunable, hardcoded movement capsule in an empty two-level test room. The full brief is in `initial.md`; naming and style rules are in `CONVENTIONS.md`.
+2D side-view platformer in **Godot 4.7 / GDScript**. **Phase 0 is complete** (ten-minute test passed 2026-11-09): a tunable, hardcoded movement capsule in an empty two-level test room. The next phase's brief hasn't been written yet. Ask the user for it before building anything new. The full brief is in `initial.md`; naming and style rules are in `CONVENTIONS.md`.
 
 ## The rule for this phase
 
@@ -19,7 +19,7 @@
    - [x] coyote time (`coyote_time`)
    - [x] jump buffering (`jump_buffer`; a buffered tap released before landing still gives a hop)
 4. [x] Camera2D: simple follow, light smoothing, a little look-ahead (`scripts/camera.gd`, child of Player in main.tscn; limits = room edges)
-5. [ ] **The gate** (user's job): the ten-minute test below
+5. [x] **The gate**: ten-minute test passed with the script's default values. Treat the current `@export` defaults in `player.gd` / `camera.gd` as the proven feel; don't change them without the user asking.
 
 **Gate:** ten minutes of moving around the empty room is quietly satisfying. Don't move past Phase 0 until the user says so.
 
